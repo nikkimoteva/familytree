@@ -19,11 +19,14 @@ using namespace std;
 int main()
 {
     vector<Person*> vec;
-    Person* abi = new Person("Abraham", 1, "M");
-    Person* sarah = new Person ("Sarah", 2, "F"); 
+    Person* abi = new Person("Abraham", 1, "M", NULL, NULL);
+    Person* irina = new Person ("Irina", 20, "F", NULL, NULL);
+    Person* sarah = new Person ("Sarah", 2, "F", abi, irina); 
+    //sarah.setFather(abi);
     vec.push_back(abi);
+    vec.push_back(irina);
     vec.push_back(sarah);
-    displayAll(vec);
+    sarah->displayAll(vec);
     //delete vec[0];
     //displayAll(vec);
     /*
