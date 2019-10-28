@@ -10,6 +10,17 @@
 //}
 
 
+template <typename T>
+string returning(T rel){
+    if(rel == NULL){
+        return "NULL";
+    }
+    else{
+        return rel->getName();
+    }
+}
+
+
 void Person::displayAll (vector<Person*> vec) const
 {
     int size = 0;
