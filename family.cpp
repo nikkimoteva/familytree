@@ -24,6 +24,8 @@ string returning(T rel){
 void Person::displayAll (vector<Person*> vec) const
 {
     int size = 0;
+    string father;
+    string mother;
     for (Person* p : vec){
         size++;
     }
@@ -32,7 +34,11 @@ void Person::displayAll (vector<Person*> vec) const
     cout  << "\nThe people in the system are...\n";
     for(int i = 0; i < size; i++)
     {
-        cout << vec[i] -> getName () << " " << vec [i] -> getAge () <<  " " << vec [i] -> getSex () << "\n";
+        cout << "here " << i << " \n";
+        father = returning(vec[i]->getFather());
+        mother = returning(vec[i]->getMother());
+        cout << vec[i] -> getName () << " " << vec [i] -> getAge () <<  " " << vec [i] -> getSex ()
+            << " " << mother << " " << father << "\n";
     }
 }
 
