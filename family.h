@@ -9,18 +9,21 @@ using namespace std;
 
 class Person
 {
-
     protected:
         string name;
         int age;
         string sex;
     public:
-
-        Person (string name, int age, string sex)
+        Person* father;
+        Person* mother;
+        void displayAll (vector<Person*> vec) const;
+        Person (string name, int age, string sex, Person* father=nullptr, Person* mother = nullptr)
         {
             this-> name = name;
             this-> age = age;
             this-> sex = sex;
+            this->father = father;
+            this-> mother = mother;
         }
 
         const string getName ()
