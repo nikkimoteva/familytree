@@ -28,10 +28,17 @@ void Person::displayAll ()
     string mother;
     father = returning(this->getFather());
     mother = returning(this->getMother());
-    cout << this -> getName () << " " << this -> getAge () <<  " " << this -> getSex ()
-        << " " << mother << " " << father << "\n";
+    spouse = returning(this->getSpouse());
+    for (Person* c: this->children){
+        childre.push_back(returning(c));
+    }
+    cout << this -> getName () << ", " << this -> getAge () <<  ", " << this -> getSex ()
+        << ", mother: " << mother << ", father: " << father << ", Spouse: " << spouse << "\n" << "children: " ;
+    for (int i = 0; i < childre.size(); i++) {cout<<childre[i] << ", ";}
+    cout << "\n\n";
     for (Person* c: this->children){
         displayChildren(this->getChild(c));
+    }
 }
 
 void Person::displayChildren (Person* c)
