@@ -50,6 +50,14 @@ class Person
         Person* getMother(){
             return mother;
         }
+    
+        Person* getSpouse(){
+            return spouse;
+        }
+
+        Person* addSpouse(Person* spouse){
+            this->spouse = spouse;
+        }
 
         Person* getChild(Person* c){
             return c;
