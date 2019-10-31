@@ -16,12 +16,14 @@ class Person
     public:
         Person* father;
         Person* mother;
-        void displayAll (vector<Person*> vec) const;
-        Person (string name, int age, string sex, Person* father=nullptr, Person* mother = nullptr)
+        void displayAll () ;
+        void displayChildren(Person* p) ;
+        Person (string name, int age, string sex, vector<Person*> children, Person* father=nullptr, Person* mother = nullptr)
         {
             this-> name = name;
             this-> age = age;
             this-> sex = sex;
+            this->children = children;
             this->father = father;
             this-> mother = mother;
         }
@@ -39,6 +41,22 @@ class Person
         const string getSex ()
         {
             return sex;
+        }
+    
+        Person* getFather(){
+            return father;
+        }
+
+        Person* getMother(){
+            return mother;
+        }
+
+        Person* getChild(Person* c){
+            return c;
+        }
+
+        Person* addChild(Person* c){
+            this->children.push_back(c);
         }
 
         void displayAll (vector<Person*> vec) const;
