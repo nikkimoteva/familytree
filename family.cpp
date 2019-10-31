@@ -30,9 +30,8 @@ void Person::displayAll ()
     mother = returning(this->getMother());
     cout << this -> getName () << " " << this -> getAge () <<  " " << this -> getSex ()
         << " " << mother << " " << father << "\n";
-    for (int c = 0; c < this->children.size(); c++){
-        displayChildren(this->children[c]);
-    }
+    for (Person* c: this->children){
+        displayChildren(this->getChild(c));
 }
 
 void Person::displayChildren (Person* c)
