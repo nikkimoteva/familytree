@@ -10,36 +10,34 @@
 //}
 
 
-template <typename T>
-string returning(T rel){
+//template <typename T>
+string returning(Person* rel) 
+{
     if(rel == NULL){
-        return "NULL";
+        return "N/A";
     }
     else{
         return rel->getName();
     }
 }
 
-
-void Person::displayAll (vector<Person*> vec) const
+void Person::displayAll () 
 {
     int size = 0;
     string father;
     string mother;
-    for (Person* p : vec){
-        size++;
+    father = returning(this->getFather());
+    mother = returning(this->getMother());
+    cout << this -> getName () << " " << this -> getAge () <<  " " << this -> getSex ()
+        << " " << mother << " " << father << "\n";
+    for (int c = 0; c < this->children.size(); c++){
+        displayChildren(this->children[c]);
     }
-    //int size = sizeof(vec);
-    cout<<size;
-    cout  << "\nThe people in the system are...\n";
-    for(int i = 0; i < size; i++)
-    {
-        cout << "here " << i << " \n";
-        father = returning(vec[i]->getFather());
-        mother = returning(vec[i]->getMother());
-        cout << vec[i] -> getName () << " " << vec [i] -> getAge () <<  " " << vec [i] -> getSex ()
-            << " " << mother << " " << father << "\n";
-    }
+}
+
+void Person::displayChildren (Person* c)
+{
+    c->displayAll();
 }
 
 
