@@ -16,9 +16,12 @@ class Person
     public:
         Person* father;
         Person* mother;
+        Person* spouse;
         void displayAll () ;
         void displayChildren(Person* p) ;
-        Person (string name, int age, string sex, vector<Person*> children, Person* father=nullptr, Person* mother = nullptr)
+        const void displaySiblings();
+        vector<Person*> siblings;
+        Person (string name, int age, string sex, vector<Person*> children, Person* father=nullptr, Person* mother = nullptr, Person* spouse = nullptr)
         {
             this-> name = name;
             this-> age = age;
@@ -26,6 +29,7 @@ class Person
             this->children = children;
             this->father = father;
             this-> mother = mother;
+            this->spouse = spouse;
         }
 
         const string getName ()
