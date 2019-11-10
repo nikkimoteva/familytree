@@ -28,7 +28,12 @@ int main()
     
     shahram->displayAll();
     behazin->displayAll();
-	cout << "Press enter (or Ctrl-C) to quit ... " << endl;
-	cin.get();
-     return 0;
+
+    nikki->addSibling(lily);
+    nikki->addSibling(amin);
+    nikki->displaySiblings();
+	
+    cout << "Press enter (or Ctrl-C) to quit ... " << endl;
+    cin.get();
+    return 0;
 }
