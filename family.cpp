@@ -26,6 +26,8 @@ void Person::displayAll ()
     int size = 0;
     string father;
     string mother;
+    string spouse;
+    vector<string> childre;
     father = returning(this->getFather());
     mother = returning(this->getMother());
     spouse = returning(this->getSpouse());
@@ -47,32 +49,12 @@ void Person::displayChildren (Person* c)
 }
 
 
-
-
-/**
- * deletes the person
- 
-Person::~Person(){
-     Person.clear();
-}*/
-
-/**
- * remove the father from the list of children of prev father and 
- * add it's children to it and
- * return true if the action was done successfully
- * 
- * @param the father object, NULL is allowed
- */
-/**bool Person::setFather(Person*){
-    Person->father = this;
-    Person* gDad = this->father;
-    gDad->removeChild(father);
-    for (Person* c: father->children){
-        dad->addChild(c);
+const void Person::displaySiblings ()
+{
+    cout <<this->getName() <<"'s Siblings are: " << "\n";
+    vector<Person*> sibs = this->getSiblings();
+    for (Person* s: sibs){
+        cout<< s->getName() << "\n";
     }
-    return true;
-};
-
-void Person(Sex sex){
-    sex == MALE?"male":"female";
-}*/
+    cout << "\n\n";
+}
