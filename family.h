@@ -20,8 +20,10 @@ class Person
         void displayAll () ;
         void displayChildren(Person* p) ;
         const void displaySiblings();
+        vector<Person*> children;
         vector<Person*> siblings;
-        Person (string name, int age, string sex, vector<Person*> children, Person* father=nullptr, Person* mother = nullptr, Person* spouse = nullptr)
+        Person (string name, int age, string sex, vector<Person*> children, vector<Person*> siblings,
+                    Person* father=nullptr, Person* mother = nullptr, Person* spouse = nullptr)
         {
             this-> name = name;
             this-> age = age;
@@ -30,6 +32,7 @@ class Person
             this->father = father;
             this-> mother = mother;
             this->spouse = spouse;
+            this->siblings = siblings;
         }
 
         const string getName ()
@@ -71,5 +74,11 @@ class Person
             this->children.push_back(c);
         }
 
-        void displayAll (vector<Person*> vec) const;
+        Person* addSibling(Person* c){
+            this->siblings.push_back(c);
+        }
+
+        vector<Person*> getSiblings(){
+            return siblings;
+        }
 };
