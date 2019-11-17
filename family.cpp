@@ -56,3 +56,25 @@ const void Person::displaySiblings ()
     }
     cout << "\n\n";
 }
+
+// displays all the children of a given person
+const void Person::childrenName()
+{
+    vector<Person*> childs = this->getChildren();
+    for (int i = 0; i<childs.size(); i++){
+        cout << childs[i]->getName() << "\n";
+    }
+}
+
+// displays all the cousins of a given person
+void Person::displayCousins()
+{
+    cout <<this->getName() << "'s cousins are: " << "\n";
+    vector<Person*> auntUncle = this->getFather()->getSiblings();
+    for (int i = 0; i < this->getMother()->getSiblings().size(); i++){
+        auntUncle.push_back(this->getMother()->siblings[i]);
+    }
+    for (int i = 0; i < auntUncle.size(); i++){
+        auntUncle[i]->childrenName();
+    }
+}
