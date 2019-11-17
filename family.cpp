@@ -5,11 +5,7 @@
  * Name: Nikki Motevaselolhagh
 */
 
-//void d(Person* p){
-//   cout<<"This is %s, with age %d and the sex is %s", p->getName(), p->getAge(), p->getSex();
-//}
-
-
+// method used in displayAll, checks for null
 //template <typename T>
 string returning(Person* rel) 
 {
@@ -21,6 +17,13 @@ string returning(Person* rel)
     }
 }
 
+// method used in displayAll
+void Person::displayChildren (Person* c)
+{
+    c->displayAll();
+}
+
+// displays all the information of the family of the given person.
 void Person::displayAll () 
 {
     int size = 0;
@@ -43,12 +46,7 @@ void Person::displayAll ()
     }
 }
 
-void Person::displayChildren (Person* c)
-{
-    c->displayAll();
-}
-
-
+//Displays all siblings of a given person
 const void Person::displaySiblings ()
 {
     cout <<this->getName() <<"'s Siblings are: " << "\n";
