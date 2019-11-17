@@ -78,3 +78,43 @@ void Person::displayCousins()
         auntUncle[i]->childrenName();
     }
 }
+
+// displays all the anscestors of a given person
+void Person::displayAncestors()
+{
+    string mothers, fathers;
+    auto mother = this->getMother();
+    auto father = this->getFather();
+    if(mother != NULL){
+        mothers = mother->getName();
+        mother->displayAnscestors();
+    }
+    else{
+        mothers = "N/A";
+    }
+    if(father != NULL){
+        fathers = father->getName();
+        father->displayAnscestors();
+    }
+    else{
+        fathers = "N/A";
+    }
+    cout << this->getName() << "'s mother: " << mothers << "; father: " << fathers << "\n";
+}
+
+// displays all the descendants of a given person
+void Person::displayDescendants()
+{
+    vector<Person*> childs = this->getChildren();
+    vector<Person*> curr = childs;
+    cout << this->getName() << "'s children: ";
+    while (!curr.empty()){
+        cout << curr.back()->getName() << ", ";
+        curr.pop_back();
+    }
+    cout << "\n";
+    while (!childs.empty()){
+        childs.back()->displayDescendants();
+        childs.pop_back();
+    }
+}
